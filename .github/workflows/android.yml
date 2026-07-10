@@ -16,7 +16,7 @@ jobs:
     - name: 配置 Java 17 环境
       uses: actions/setup-java@v4
       with:
-        java-version: '17'
+        java-version: '21'
         distribution: 'temurin'
         cache: gradle
 
