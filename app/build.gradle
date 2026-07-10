@@ -4,12 +4,15 @@ plugins {
 
 android {
     namespace 'com.example.module'
-    compileSdk 34 // 可以根据需要修改
+    // ✨ 核心修正 1：将编译版本提升到 36 (Android 16)，让编译器支持新系统的特性
+    compileSdk 36 
 
     defaultConfig {
         applicationId "com.example.module"
-        minSdkVersion 31
-        targetSdkVersion 34
+        minSdkVersion 31  // 保持 31 (Android 12) 或更低即可
+        
+        // ✨ 核心修正 2：将目标版本提升到 36 (Android 16)，告诉你的手机系统这个包已经对 Android 16 做了完全适配
+        targetSdkVersion 36 
         versionCode 1
         versionName "1.0.0"
     }
@@ -35,9 +38,7 @@ android {
 
 dependencies {
     compileOnly 'androidx.annotation:annotation:1.9.1'
-    compileOnly("io.github.libxposed:api:102.0.0") // 请参考 libxposed 文档查看最新版本
+    compileOnly("io.github.libxposed:api:102.0.0") 
     compileOnly project(":libxposed-compat")
-    
-    // ✨ 核心修正：补上传统 Xposed 编译依赖，解决找不到 de.robv.android.xposed 包的问题
     compileOnly 'de.robv.android.xposed:api:82'
 }
