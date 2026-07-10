@@ -35,6 +35,9 @@ android {
 
 dependencies {
     compileOnly 'androidx.annotation:annotation:1.9.1'
-    compileOnly("io.github.libxposed:api:102.0.0")// 请参考 libxposed 文档查看最新版本
+    compileOnly("io.github.libxposed:api:102.0.0") // 请参考 libxposed 文档查看最新版本
     compileOnly project(":libxposed-compat")
+    
+    // ✨ 核心修正：补上传统 Xposed 编译依赖，解决找不到 de.robv.android.xposed 包的问题
+    compileOnly 'de.robv.android.xposed:api:82'
 }
